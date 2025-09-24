@@ -2,6 +2,11 @@
 import { loadHeader } from './header.js';
 import { loadFooter } from './footer.js';
 
+// Import additional modules for enhanced functionality
+import './analytics.js';
+import './security.js';
+import './devtools.js';
+
 // Initialize all site functionality
 export function initializeSite() {
   // Load dynamic components

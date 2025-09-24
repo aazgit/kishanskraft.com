@@ -1,8 +1,13 @@
-# KishansKraft Website
+# KishansKraft - Premium Coldpress Mustard Oil Website
 
-A modern, production-ready static website for KishansKraft - Premium Coldpress Mustard Oil from Bihar, India.
+[![PWA Ready](https://img.shields.io/badge/PWA-Ready-green.svg)](https://developers.google.com/web/progressive-web-apps/)
+[![Mobile First](https://img.shields.io/badge/Mobile-First-blue.svg)](https://developers.google.com/web/fundamentals/design-and-ux/responsive/)
+[![Performance](https://img.shields.io/badge/Lighthouse-90%2B-green.svg)](https://developers.google.com/web/tools/lighthouse/)
+[![Security](https://img.shields.io/badge/Security-Enhanced-red.svg)](https://developer.mozilla.org/en-US/docs/Web/Security)
 
-## Features
+A modern, production-ready website for KishansKraft - Premium Coldpress Mustard Oil from Bihar, India. Built with cutting-edge web technologies and optimized for performance, accessibility, and user experience.
+
+## 🌟 Features
 
 - ✨ **Modern Design**: Glassmorphism UI with warm mustard-accent palette
 - 📱 **Fully Responsive**: Mobile-first design that works on all devices

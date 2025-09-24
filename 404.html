@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Page Not Found - KishansKraft</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Browse our premium coldpress mustard oil products instead.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#D97706">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <style>
+    .error-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg) 100%);
+    }
+    
+    .error-content {
+      max-width: 600px;
+    }
+    
+    .error-code {
+      font-size: clamp(4rem, 8vw, 8rem);
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: var(--spacing-md);
+      font-family: var(--font-secondary);
+    }
+    
+    .error-message {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .error-suggestions {
+      background: var(--white);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-lg);
+    }
+    
+    .suggestions-list {
+      list-style: none;
+      text-align: left;
+    }
+    
+    .suggestions-list li {
+      padding: var(--spacing-xs) 0;
+      border-bottom: 1px solid #E5E7EB;
+    }
+    
+    .suggestions-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .suggestions-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .suggestions-list a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="error-container">
+    <div class="error-content">
+      <div class="error-code">404</div>
+      <h1>Oops! Page Not Found</h1>
+      <p class="error-message">
+        The page you're looking for seems to have wandered off like mustard seeds in the wind. 
+        But don't worry - we have plenty of other great content for you!
+      </p>
+      
+      <div class="error-suggestions">
+        <h3 class="mb-md">Here's what you can do:</h3>
+        <ul class="suggestions-list">
+          <li>🏠 <a href="/">Go back to homepage</a></li>
+          <li>🛍️ <a href="/products.html">Browse our mustard oil products</a></li>
+          <li>📖 <a href="/about.html">Learn about our story</a></li>
+          <li>📞 <a href="/contact.html">Contact us for help</a></li>
+          <li>🔍 <a href="javascript:history.back()">Go back to previous page</a></li>
+        </ul>
+      </div>
+      
+      <div class="hero-cta">
+        <a href="/" class="btn btn-primary">Return Home</a>
+        <a href="/products.html" class="btn btn-secondary">Shop Products</a>
+      </div>
+      
+      <div class="mt-lg" style="font-size: 0.875rem; color: var(--text-muted);">
+        <p>Still having trouble? <a href="/contact.html" style="color: var(--accent);">Contact our support team</a> - we're here to help!</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    // Track 404 errors for analytics
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: '404 - Page Not Found',
+        page_location: window.location.href,
+        custom_parameter: 'error_404'
+      });
+    }
+    
+    // Log 404 for debugging
+    console.warn('404 Error - Page not found:', window.location.href);
+    
+    // Optional: Auto-redirect to homepage after 30 seconds
+    let countdown = 30;
+    const redirectMessage = document.createElement('div');
+    redirectMessage.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent-light);
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      font-size: 0.875rem;
+      color: var(--text);
+      display: none;
+    `;
+    
+    // Uncomment to enable auto-redirect
+    /*
+    document.body.appendChild(redirectMessage);
+    redirectMessage.style.display = 'block';
+    
+    const countdownInterval = setInterval(() => {
+      redirectMessage.textContent = `Redirecting to homepage in ${countdown} seconds...`;
+      countdown--;
+      
+      if (countdown < 0) {
+        clearInterval(countdownInterval);
+        window.location.href = '/';
+      }
+    }, 1000);
+    */
+  </script>
+</body>
+</html>
