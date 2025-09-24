@@ -270,15 +270,101 @@
   <!-- JavaScript Modules -->
   <script type="module" src="/assets/js/site.js"></script>
   
-  <!-- Service Worker for PWA (optional) -->
+  <!-- Service Worker for PWA -->
   <script>
+    // PWA Service Worker Registration
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
-          .then(registration => console.log('SW registered'))
-          .catch(error => console.log('SW registration failed'));
+          .then(registration => {
+            console.log('SW registered: ', registration);
+            
+            // Check for service worker updates
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New service worker available
+                  if (confirm('New version available! Refresh to update?')) {
+                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                    window.location.reload();
+                  }
+                }
+              });
+            });
+          })
+          .catch(error => {
+            console.log('SW registration failed: ', error);
+          });
       });
     }
+
+    // PWA Install Prompt
+    let deferredPrompt;
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later
+      deferredPrompt = e;
+      
+      // Show install button
+      showInstallButton();
+    });
+    
+    function showInstallButton() {
+      // Create install button
+      const installBtn = document.createElement('button');
+      installBtn.textContent = '📱 Install App';
+      installBtn.className = 'install-button';
+      installBtn.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: white;
+        border: none;
+        padding: 12px 16px;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      `;
+      
+      installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log(`User response to the install prompt: ${outcome}`);
+          deferredPrompt = null;
+          installBtn.remove();
+        }
+      });
+      
+      document.body.appendChild(installBtn);
+      
+      // Auto-hide after 10 seconds
+      setTimeout(() => {
+        if (installBtn.parentNode) {
+          installBtn.remove();
+        }
+      }, 10000);
+    }
+    
+    // Handle successful app install
+    window.addEventListener('appinstalled', () => {
+      console.log('PWA was installed');
+      // Hide install button if visible
+      const installBtn = document.querySelector('.install-button');
+      if (installBtn) {
+        installBtn.remove();
+      }
+    });
   </script>
 </body>
 </html>

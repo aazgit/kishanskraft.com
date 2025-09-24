@@ -12,6 +12,7 @@ export function initializeSite() {
   initializeLazyLoading();
   initializeAccessibilityHelpers();
   initializeAnimations();
+  initializeOfflineSupport();
   
   console.log('KishansKraft website initialized');
 }
@@ -273,3 +274,67 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// Offline support and PWA functionality
+export function initializeOfflineSupport() {
+  // Check online/offline status
+  function updateOnlineStatus() {
+    const isOnline = navigator.onLine;
+    
+    if (!isOnline) {
+      showNotification('You are currently offline. Some features may not work.', 'info');
+    }
+    
+    // Add offline indicator to body
+    document.body.classList.toggle('offline', !isOnline);
+  }
+  
+  // Listen for online/offline events
+  window.addEventListener('online', () => {
+    showNotification('Connection restored!', 'success');
+    document.body.classList.remove('offline');
+  });
+  
+  window.addEventListener('offline', updateOnlineStatus);
+  
+  // Initial check
+  updateOnlineStatus();
+  
+  // Add offline styles
+  if (!document.getElementById('offline-styles')) {
+    const offlineStyles = document.createElement('style');
+    offlineStyles.id = 'offline-styles';
+    offlineStyles.textContent = `
+      .offline::before {
+        content: "⚠️ Offline Mode";
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #FEF3E2;
+        color: #D97706;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        z-index: 1001;
+        border: 1px solid #F59E0B;
+      }
+      
+      .offline img[data-src] {
+        background: var(--accent-light);
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+      
+      .offline img[data-src]::before {
+        content: "Image unavailable offline";
+      }
+    `;
+    document.head.appendChild(offlineStyles);
+  }
+}

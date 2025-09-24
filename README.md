@@ -11,7 +11,7 @@ A modern, production-ready static website for KishansKraft - Premium Coldpress M
 - 🔍 **SEO Ready**: Structured data, Open Graph tags, and semantic HTML
 - 🛠️ **Progressive Enhancement**: Works without JavaScript, enhanced with JS
 - 📦 **Static Hosting Ready**: Deployable to Netlify, Vercel, GitHub Pages
-- 🌐 **PWA Features**: Installable with offline capability
+- 🌐 **Full PWA Support**: Installable app with offline functionality and caching
 
 ## Technology Stack
 
@@ -166,6 +166,41 @@ The site is mobile-first responsive. Key breakpoints:
 - Mobile: < 768px
 - Tablet: 768px - 1024px  
 - Desktop: > 1024px
+
+## PWA Features
+
+The website is a **complete Progressive Web App** with:
+
+### ✅ Fully Implemented:
+- **Web App Manifest**: Complete configuration for app installation
+- **Service Worker**: Full caching strategy with offline support
+- **Install Prompt**: Smart installation button for supported browsers
+- **Offline Mode**: Works without internet connection
+- **Background Sync**: Handles form submissions when back online
+- **Push Notifications**: Ready for marketing notifications (optional)
+- **App-like Experience**: Standalone display mode
+- **Theme Integration**: Matches brand colors in device UI
+
+### 📱 Installation:
+Users can install the app by:
+1. Clicking the install button that appears automatically
+2. Using browser's "Add to Home Screen" option
+3. Installing from address bar (Chrome/Edge)
+
+### 🔧 PWA Customization:
+
+Update PWA settings in `manifest.json`:
+- App name and description
+- Icon references (requires actual icon files)
+- Theme and background colors
+- Start URL and display mode
+
+The service worker in `sw.js` handles:
+- Static asset caching
+- Dynamic content caching
+- Offline fallbacks
+- Background sync
+- Push notifications
 
 ### 🔍 SEO Configuration
 

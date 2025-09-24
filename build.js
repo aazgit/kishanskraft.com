@@ -34,7 +34,7 @@ const copyDir = (src, dest) => {
 });
 
 // Copy HTML files
-['index.html', 'products.html', 'product.html', 'about.html', 'contact.html', 'manifest.json', 'robots.txt', 'sitemap.xml'].forEach(file => {
+['index.html', 'products.html', 'product.html', 'about.html', 'contact.html', 'manifest.json', 'robots.txt', 'sitemap.xml', 'sw.js'].forEach(file => {
   if (fs.existsSync(file)) {
     fs.copyFileSync(file, `dist/${file}`);
   }
