@@ -1,0 +1,21 @@
+{
+  "name": "KishansKraft",
+  "short_name": "KishansKraft",
+  "description": "Premium Coldpress Mustard Oil from Bihar",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FEF7ED",
+  "theme_color": "#D97706",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

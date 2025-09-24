@@ -1,0 +1,143 @@
+{
+  "products": [
+    {
+      "id": "coldpress-mustard-oil-500ml",
+      "name": "Premium Coldpress Mustard Oil",
+      "shortDescription": "Pure, traditional coldpressed mustard oil from Bihar's finest mustard seeds.",
+      "longDescription": "Our premium coldpressed mustard oil is extracted using traditional methods that preserve all the natural nutrients and authentic flavor. Made from carefully selected mustard seeds grown in the fertile plains of Bihar, this oil is perfect for cooking, massage, and traditional Ayurvedic treatments. Rich in omega-3 fatty acids, vitamin E, and natural antioxidants.",
+      "price": "249",
+      "sizes": [
+        {
+          "size": "500ml",
+          "price": "249",
+          "stock": 50
+        },
+        {
+          "size": "1L",
+          "price": "475",
+          "stock": 30
+        },
+        {
+          "size": "2L",
+          "price": "895",
+          "stock": 20
+        }
+      ],
+      "images": [
+        "/images/mustard-oil-bottle-1.webp",
+        "/images/mustard-oil-bottle-2.webp",
+        "/images/mustard-oil-process.webp"
+      ],
+      "features": [
+        "100% Pure Coldpressed",
+        "No Chemical Processing",
+        "Rich in Omega-3 Fatty Acids",
+        "Traditional Bihar Recipe",
+        "Premium Quality Mustard Seeds",
+        "Natural Antioxidants",
+        "Perfect for Cooking & Massage",
+        "Authentic Flavor"
+      ],
+      "nutritionalInfo": {
+        "calories": "884 kcal per 100ml",
+        "fat": "100g",
+        "saturatedFat": "12g",
+        "omega3": "5.9g",
+        "omega6": "15.3g",
+        "vitaminE": "17.46mg"
+      },
+      "tags": ["coldpress", "mustard-oil", "organic", "traditional", "bihar", "pure"],
+      "seo": {
+        "title": "Premium Coldpress Mustard Oil 500ml - KishansKraft | Pure Bihar Mustard Oil",
+        "description": "Buy pure coldpressed mustard oil from Bihar. Traditional extraction, rich in omega-3, perfect for cooking and massage. Premium quality mustard seeds from Madhubani.",
+        "ogImage": "/images/og-mustard-oil.webp",
+        "keywords": ["mustard oil", "coldpress", "bihar", "organic", "cooking oil", "massage oil"]
+      },
+      "availability": {
+        "inStock": true,
+        "stockCount": 100,
+        "deliveryDays": "3-5"
+      },
+      "reviews": [
+        {
+          "name": "Priya Singh",
+          "rating": 5,
+          "comment": "Excellent quality! The taste and aroma remind me of my grandmother's homemade oil. Perfect for traditional Bengali cooking.",
+          "date": "2024-01-15"
+        },
+        {
+          "name": "Rajesh Kumar",
+          "rating": 5,
+          "comment": "Best mustard oil I've used in years. Pure and authentic. Great for both cooking and hair massage.",
+          "date": "2024-01-10"
+        }
+      ],
+      "category": "Cooking Oils",
+      "brand": "KishansKraft",
+      "origin": "Sapta, Madhubani, Bihar",
+      "shelfLife": "12 months",
+      "storageInstructions": "Store in cool, dry place away from direct sunlight"
+    },
+    {
+      "id": "coldpress-mustard-oil-1l",
+      "name": "Premium Coldpress Mustard Oil - 1L",
+      "shortDescription": "Larger pack of our premium coldpressed mustard oil, perfect for families.",
+      "longDescription": "Our 1-liter pack of premium coldpressed mustard oil offers great value for families who appreciate authentic flavors and traditional quality. This oil maintains all the nutritional benefits and purity of our traditional extraction process, making it ideal for daily cooking needs and wellness routines.",
+      "price": "475",
+      "sizes": [
+        {
+          "size": "1L",
+          "price": "475",
+          "stock": 30
+        }
+      ],
+      "images": [
+        "/images/mustard-oil-1l-bottle.webp",
+        "/images/mustard-oil-family-pack.webp"
+      ],
+      "features": [
+        "100% Pure Coldpressed",
+        "Family Size Pack",
+        "No Chemical Processing",
+        "Rich in Omega-3 Fatty Acids",
+        "Traditional Bihar Recipe",
+        "Better Value for Money",
+        "Premium Quality Mustard Seeds",
+        "Natural Antioxidants"
+      ],
+      "nutritionalInfo": {
+        "calories": "884 kcal per 100ml",
+        "fat": "100g",
+        "saturatedFat": "12g",
+        "omega3": "5.9g",
+        "omega6": "15.3g",
+        "vitaminE": "17.46mg"
+      },
+      "tags": ["coldpress", "mustard-oil", "organic", "traditional", "bihar", "pure", "family-pack"],
+      "seo": {
+        "title": "Premium Coldpress Mustard Oil 1L - KishansKraft | Family Pack Bihar Mustard Oil",
+        "description": "Buy 1L premium coldpressed mustard oil from Bihar. Family pack size, traditional extraction, rich in omega-3. Best value for authentic mustard oil.",
+        "ogImage": "/images/og-mustard-oil-1l.webp",
+        "keywords": ["mustard oil 1l", "coldpress", "bihar", "family pack", "organic", "cooking oil"]
+      },
+      "availability": {
+        "inStock": true,
+        "stockCount": 30,
+        "deliveryDays": "3-5"
+      },
+      "reviews": [
+        {
+          "name": "Anita Devi",
+          "rating": 5,
+          "comment": "Perfect size for our family. The quality is consistent and the oil has that authentic taste we love.",
+          "date": "2024-01-20"
+        }
+      ],
+      "category": "Cooking Oils",
+      "brand": "KishansKraft",
+      "origin": "Sapta, Madhubani, Bihar",
+      "shelfLife": "12 months",
+      "storageInstructions": "Store in cool, dry place away from direct sunlight"
+    }
+  ]
+}

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags - Will be dynamically updated -->
+  <title id="page-title">Product Details | KishansKraft</title>
+  <meta name="description" id="page-description" content="Premium coldpressed mustard oil product details from KishansKraft Bihar">
+  <meta name="keywords" id="page-keywords" content="mustard oil, coldpress, bihar, organic, cooking oil">
+  
+  <!-- Open Graph Meta Tags - Will be dynamically updated -->
+  <meta property="og:title" id="og-title" content="KishansKraft Product Details">
+  <meta property="og:description" id="og-description" content="Premium coldpressed mustard oil from Bihar">
+  <meta property="og:image" id="og-image" content="/images/og-product-default.webp">
+  <meta property="og:url" id="og-url" content="">
+  <meta property="og:type" content="product">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitter-title" content="KishansKraft Product">
+  <meta name="twitter:description" id="twitter-description" content="Premium coldpressed mustard oil from Bihar">
+  <meta name="twitter:image" id="twitter-image" content="/images/og-product-default.webp">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <!-- JSON-LD Structured Data - Will be dynamically updated -->
+  <script type="application/ld+json" id="product-schema">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "KishansKraft Mustard Oil",
+    "brand": {
+      "@type": "Brand",
+      "name": "KishansKraft"
+    },
+    "description": "Premium coldpressed mustard oil from Bihar",
+    "offers": {
+      "@type": "Offer",
+      "url": "",
+      "priceCurrency": "INR",
+      "price": "249",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Header will be injected here -->
+  <header class="site-header" data-header role="banner">
+    <noscript>
+      <nav class="navbar">
+        <div class="navbar-container">
+          <div class="navbar-brand">
+            <a href="/" class="logo">KishansKraft</a>
+          </div>
+          <div class="navbar-menu">
+            <ul class="navbar-nav">
+              <li><a href="/" class="nav-link">Home</a></li>
+              <li><a href="/products.html" class="nav-link">Products</a></li>
+              <li><a href="/about.html" class="nav-link">About</a></li>
+              <li><a href="/contact.html" class="nav-link">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </noscript>
+  </header>
+
+  <main id="main-content">
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb" style="padding: var(--spacing-md) 0; background: var(--accent-light);">
+      <div class="container">
+        <ol style="display: flex; list-style: none; gap: var(--spacing-xs); font-size: 0.875rem;">
+          <li><a href="/" style="color: var(--text-muted);">Home</a></li>
+          <li style="color: var(--text-muted);">→</li>
+          <li><a href="/products.html" style="color: var(--text-muted);">Products</a></li>
+          <li style="color: var(--text-muted);">→</li>
+          <li id="breadcrumb-current" style="color: var(--text);" aria-current="page">Loading...</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Product Loading State -->
+    <div id="product-loading" class="product-detail" style="text-align: center; padding: var(--spacing-xl) 0;">
+      <div class="container">
+        <p>Loading product details...</p>
+      </div>
+    </div>
+
+    <!-- Product Not Found State -->
+    <div id="product-not-found" class="product-detail" style="display: none; text-align: center; padding: var(--spacing-xl) 0;">
+      <div class="container">
+        <h1>Product Not Found</h1>
+        <p class="mb-lg">Sorry, the product you're looking for doesn't exist.</p>
+        <a href="/products.html" class="btn btn-primary">Browse All Products</a>
+      </div>
+    </div>
+
+    <!-- Product Detail Container -->
+    <div id="product-detail" class="product-detail" style="display: none;">
+      <div class="container">
+        <div class="product-detail-content">
+          <!-- Product Gallery -->
+          <div class="product-gallery" id="product-gallery">
+            <div class="placeholder-image">Loading image...</div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-info" id="product-info">
+            <!-- Content will be dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Product Features -->
+        <section id="product-features" class="mt-xl" style="display: none;">
+          <!-- Features will be populated dynamically -->
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="product-reviews" class="mt-xl" style="display: none;">
+          <h3 class="mb-md">Customer Reviews</h3>
+          <div id="reviews-container">
+            <!-- Reviews will be populated dynamically -->
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- No JavaScript Fallback -->
+    <noscript>
+      <section class="product-detail">
+        <div class="container">
+          <div class="product-detail-content">
+            <div class="product-gallery">
+              <div class="placeholder-image">Product Image</div>
+            </div>
+            <div class="product-info">
+              <h1>Premium Coldpress Mustard Oil</h1>
+              <div class="product-price-large">₹ 249</div>
+              <p class="mb-md">Pure, traditional coldpressed mustard oil from Bihar's finest mustard seeds.</p>
+              <a href="https://wa.me/919999999999?text=Hi,%20I%27d%20like%20to%20order%20Premium%20Coldpress%20Mustard%20Oil" 
+                 class="btn btn-primary" 
+                 target="_blank" 
+                 rel="noopener noreferrer">
+                Order via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </noscript>
+
+    <!-- Related Products Section -->
+    <section class="related-products" style="padding: var(--spacing-xl) 0; background: var(--accent-light);">
+      <div class="container">
+        <h2 class="text-center mb-lg">More Products You'll Love</h2>
+        <div class="text-center">
+          <a href="/products.html" class="btn btn-secondary">View All Products</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer will be injected here -->
+  <footer class="site-footer" data-footer role="contentinfo">
+    <noscript>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">KishansKraft</h3>
+            <p class="footer-description">Premium coldpress mustard oil from Bihar.</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright">© 2025 KishansKraft. All rights reserved.</p>
+        </div>
+      </div>
+    </noscript>
+  </footer>
+
+  <!-- Product Detail JavaScript -->
+  <script type="module">
+    import { loadProducts, formatPrice, generateWhatsAppLink, showNotification } from '/assets/js/site.js';
+    
+    async function loadProductDetail() {
+      const loadingEl = document.getElementById('product-loading');
+      const notFoundEl = document.getElementById('product-not-found');
+      const detailEl = document.getElementById('product-detail');
+      
+      // Get product ID from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id') || window.location.hash.replace('#', '');
+      
+      if (!productId) {
+        loadingEl.style.display = 'none';
+        notFoundEl.style.display = 'block';
+        return;
+      }
+      
+      try {
+        const data = await loadProducts();
+        const product = data.products.find(p => p.id === productId);
+        
+        if (!product) {
+          loadingEl.style.display = 'none';
+          notFoundEl.style.display = 'block';
+          return;
+        }
+        
+        // Render product
+        renderProduct(product);
+        updateSEO(product);
+        updateSchema(product);
+        
+        loadingEl.style.display = 'none';
+        detailEl.style.display = 'block';
+        
+      } catch (error) {
+        console.error('Error loading product:', error);
+        loadingEl.innerHTML = '<div class="container"><p>Error loading product. Please try again later.</p></div>';
+      }
+    }
+    
+    function renderProduct(product) {
+      // Update breadcrumb
+      document.getElementById('breadcrumb-current').textContent = product.name;
+      
+      // Render gallery
+      const gallery = document.getElementById('product-gallery');
+      if (product.images && product.images[0]) {
+        gallery.innerHTML = `<img src="${product.images[0]}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);" />`;
+      } else {
+        gallery.innerHTML = '<div class="placeholder-image">Product Image</div>';
+      }
+      
+      // Render product info
+      const info = document.getElementById('product-info');
+      const whatsappMessage = `Hi, I'd like to order ${product.name} (₹${product.price}). Please provide more details about availability and delivery.`;
+      const whatsappUrl = generateWhatsAppLink('919999999999', whatsappMessage);
+      
+      info.innerHTML = `
+        <h1>${product.name}</h1>
+        <div class="product-price-large">${formatPrice(product.price)}</div>
+        <p class="mb-md" style="font-size: 1.125rem; color: var(--text-muted);">${product.shortDescription}</p>
+        
+        ${product.sizes && product.sizes.length > 1 ? `
+          <div class="mb-md">
+            <h4 class="mb-sm">Available Sizes:</h4>
+            <div class="size-options" style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+              ${product.sizes.map(size => `
+                <div class="size-option" style="padding: var(--spacing-xs) var(--spacing-sm); border: 2px solid var(--accent); border-radius: var(--radius-sm); background: var(--white);">
+                  <strong>${size.size}</strong><br>
+                  <span style="color: var(--accent);">${formatPrice(size.price)}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+        
+        <div class="mb-lg" style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+          <a href="${whatsappUrl}" 
+             class="btn btn-primary" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             style="flex: 1; min-width: 200px;">
+            Order via WhatsApp
+          </a>
+          <button onclick="shareProduct()" class="btn btn-secondary">Share Product</button>
+        </div>
+        
+        <div class="product-description">
+          <h4 class="mb-sm">Description</h4>
+          <p style="line-height: 1.7;">${product.longDescription}</p>
+        </div>
+        
+        ${product.availability ? `
+          <div class="availability-info mt-md" style="padding: var(--spacing-sm); background: var(--accent-light); border-radius: var(--radius-sm);">
+            <p style="margin: 0; color: var(--text); font-weight: 500;">
+              ✅ In Stock • Delivery in ${product.availability.deliveryDays} days
+            </p>
+          </div>
+        ` : ''}
+      `;
+      
+      // Render features
+      if (product.features && product.features.length > 0) {
+        const featuresSection = document.getElementById('product-features');
+        featuresSection.innerHTML = `
+          <h3 class="mb-md">Key Features</h3>
+          <ul class="product-features">
+            ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+        `;
+        featuresSection.style.display = 'block';
+      }
+      
+      // Render reviews
+      if (product.reviews && product.reviews.length > 0) {
+        const reviewsSection = document.getElementById('product-reviews');
+        reviewsSection.innerHTML = `
+          <h3 class="mb-md">Customer Reviews</h3>
+          <div class="reviews-grid" style="display: grid; gap: var(--spacing-md);">
+            ${product.reviews.map(review => `
+              <div class="review-card" style="background: var(--white); padding: var(--spacing-md); border-radius: var(--radius); box-shadow: var(--shadow-sm);">
+                <div class="review-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xs);">
+                  <strong>${review.name}</strong>
+                  <div class="rating">${'⭐'.repeat(review.rating)}</div>
+                </div>
+                <p style="margin: 0; font-style: italic; color: var(--text-muted);">"${review.comment}"</p>
+                <small style="color: var(--text-muted); margin-top: var(--spacing-xs); display: block;">
+                  ${new Date(review.date).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </small>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        reviewsSection.style.display = 'block';
+      }
+    }
+    
+    function updateSEO(product) {
+      if (product.seo) {
+        document.getElementById('page-title').textContent = product.seo.title;
+        document.getElementById('page-description').setAttribute('content', product.seo.description);
+        document.getElementById('page-keywords').setAttribute('content', product.seo.keywords.join(', '));
+        
+        // Open Graph
+        document.getElementById('og-title').setAttribute('content', product.seo.title);
+        document.getElementById('og-description').setAttribute('content', product.seo.description);
+        document.getElementById('og-image').setAttribute('content', product.seo.ogImage || product.images[0] || '/images/og-product-default.webp');
+        document.getElementById('og-url').setAttribute('content', window.location.href);
+        
+        // Twitter Cards
+        document.getElementById('twitter-title').setAttribute('content', product.seo.title);
+        document.getElementById('twitter-description').setAttribute('content', product.seo.description);
+        document.getElementById('twitter-image').setAttribute('content', product.seo.ogImage || product.images[0] || '/images/og-product-default.webp');
+        
+        // Update page title
+        document.title = product.seo.title;
+      }
+    }
+    
+    function updateSchema(product) {
+      const schema = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": product.name,
+        "description": product.longDescription || product.shortDescription,
+        "brand": {
+          "@type": "Brand",
+          "name": product.brand || "KishansKraft"
+        },
+        "image": product.images || [],
+        "offers": {
+          "@type": "Offer",
+          "url": window.location.href,
+          "priceCurrency": "INR",
+          "price": product.price,
+          "availability": product.availability?.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "KishansKraft"
+          }
+        }
+      };
+      
+      if (product.reviews && product.reviews.length > 0) {
+        schema.aggregateRating = {
+          "@type": "AggregateRating",
+          "ratingValue": (product.reviews.reduce((sum, review) => sum + review.rating, 0) / product.reviews.length).toFixed(1),
+          "reviewCount": product.reviews.length
+        };
+        
+        schema.review = product.reviews.map(review => ({
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating
+          },
+          "author": {
+            "@type": "Person",
+            "name": review.name
+          },
+          "reviewBody": review.comment,
+          "datePublished": review.date
+        }));
+      }
+      
+      document.getElementById('product-schema').textContent = JSON.stringify(schema, null, 2);
+    }
+    
+    // Share functionality
+    window.shareProduct = function() {
+      const product = document.querySelector('h1').textContent;
+      const url = window.location.href;
+      
+      if (navigator.share) {
+        navigator.share({
+          title: product,
+          text: 'Check out this premium mustard oil from KishansKraft',
+          url: url
+        }).catch(console.error);
+      } else {
+        // Fallback to clipboard
+        navigator.clipboard.writeText(url).then(() => {
+          showNotification('Product link copied to clipboard!', 'success');
+        }).catch(() => {
+          showNotification('Unable to copy link', 'error');
+        });
+      }
+    };
+    
+    // Load product when page loads
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadProductDetail);
+    } else {
+      loadProductDetail();
+    }
+  </script>
+  
+  <script type="module" src="/assets/js/site.js"></script>
+</body>
+</html>
