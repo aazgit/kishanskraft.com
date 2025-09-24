@@ -441,7 +441,8 @@ class DevTools {
   // Console command execution
   executeConsoleCommand(command) {
     try {
-      const result = eval(command);
+      // Use Function constructor instead of eval for better security
+      const result = new Function('return ' + command)();
       this.log('console', `> ${command}`, 'info');
       this.log('console', `< ${result}`, 'success');
     } catch (error) {
