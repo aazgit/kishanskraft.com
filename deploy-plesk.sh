@@ -16,7 +16,7 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 # Configuration - UPDATE THESE VALUES
-REPO_URL="https://github.com/aazgit/24.git"  # Your repository URL
+REPO_URL="https://github.com/aazgit/kishanskraft.com.git"  # Your repository URL
 DOMAIN_NAME=""  # Will be detected or prompted
 PROJECT_NAME="KishansKraft Website"
 

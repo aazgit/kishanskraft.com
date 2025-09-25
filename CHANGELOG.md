@@ -124,8 +124,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 🔗 Links
 
 - **Live Website**: [kishanskraft.com](https://kishanskraft.com)
-- **Repository**: [github.com/aazgit/24](https://github.com/aazgit/24)
-- **CI/CD Pipeline**: [GitHub Actions](https://github.com/aazgit/24/actions)
+- **Repository**: [github.com/aazgit/kishanskraft.com](https://github.com/aazgit/kishanskraft.com)
+- **CI/CD Pipeline**: [GitHub Actions](https://github.com/aazgit/kishanskraft.com/actions)
 - **Performance Monitoring**: [Lighthouse Reports](https://web.dev/measure/?url=https%3A%2F%2Fkishanskraft.com)
 
 ## 🎯 Roadmap

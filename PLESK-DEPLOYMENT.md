@@ -22,7 +22,7 @@ wget https://raw.githubusercontent.com/aazgit/24/main/deploy-plesk.sh
 chmod +x deploy-plesk.sh
 
 # Run deployment
-./deploy-plesk.sh --repo-url https://github.com/aazgit/24.git --domain kishanskraft.com
+./deploy-plesk.sh --repo-url https://github.com/aazgit/kishanskraft.com.git --domain kishanskraft.com
 ```
 
 ### 🎯 What the Script Does
@@ -159,7 +159,7 @@ find ~/httpdocs -type d -exec chmod 755 {} \;
 #### Git Clone Fails?
 ```bash
 # Make sure repository is accessible
-git clone https://github.com/aazgit/24.git test-clone
+git clone https://github.com/aazgit/kishanskraft.com.git test-clone
 
 # If private repository, set up SSH keys:
 ssh-keygen -t rsa -b 4096 -C "your-email@example.com"

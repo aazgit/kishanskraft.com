@@ -233,7 +233,7 @@
 
 ### 📧 **Support Channels**
 - **Documentation**: Comprehensive guides available
-- **GitHub Issues**: Technical support via repository
+- **GitHub Issues**: Technical support via repository  
 - **Debug Tools**: Built-in troubleshooting (Ctrl+Shift+D)
 - **Performance Reports**: Automated optimization recommendations
 

@@ -3,7 +3,7 @@
 This directory contains automated workflows for the KishansKraft website deployment and monitoring.
 
 **🌐 Live Site**: [kishanskraft.com](https://kishanskraft.com)  
-**📊 Build Status**: [GitHub Actions Dashboard](https://github.com/aazgit/24/actions)  
+**📊 Build Status**: [GitHub Actions Dashboard](https://github.com/aazgit/kishanskraft.com/actions)  
 **🚀 Deployment Status**: [View Live Dashboard](https://kishanskraft.com/deployment-status.html)
 
 ## 📋 Available Workflows

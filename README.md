@@ -5,12 +5,12 @@
 [![Performance](https://img.shields.io/badge/Lighthouse-90%2B-green.svg)](https://developers.google.com/web/tools/lighthouse/)
 [![Security](https://img.shields.io/badge/Security-Enhanced-red.svg)](https://developer.mozilla.org/en-US/docs/Web/Security)
 [![Live Site](https://img.shields.io/badge/Live-kishanskraft.com-blue.svg)](https://kishanskraft.com)
-[![Auto Deploy](https://img.shields.io/badge/Deploy-Automated-green.svg)](https://github.com/aazgit/24/actions)
+[![Auto Deploy](https://img.shields.io/badge/Deploy-Automated-green.svg)](https://github.com/aazgit/kishanskraft.com/actions)
 
 A modern, production-ready website for **KishansKraft** - Premium Coldpress Mustard Oil from Bihar, India. Built with cutting-edge web technologies and optimized for performance, accessibility, and user experience.
 
 🌐 **Live Site**: [kishanskraft.com](https://kishanskraft.com)  
-📊 **Deployment Status**: [GitHub Actions](https://github.com/aazgit/24/actions)  
+📊 **Deployment Status**: [GitHub Actions](https://github.com/aazgit/kishanskraft.com/actions)  
 📈 **Performance**: [Lighthouse Reports](https://web.dev/measure/?url=https%3A%2F%2Fkishanskraft.com)
 
 ## 🌟 Features
@@ -127,8 +127,8 @@ chmod +x deploy-plesk.sh
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/aazgit/24.git
-   cd kishans-kraft
+   git clone https://github.com/aazgit/kishanskraft.com.git
+   cd kishanskraft.com
    ```
 
 2. **Install dependencies**
@@ -161,11 +161,11 @@ Visit `http://localhost:3000` to view the website.
    - Automatic backups and rollback capability
    - **Live Site**: [kishanskraft.com](https://kishanskraft.com)
 
-2. **GitHub Actions CI/CD** (Automated)
+3. **GitHub Actions CI/CD** (Automated)
    - Triggers on every push to main branch
    - Automated testing, building, and deployment
    - Performance monitoring and security scans
-   - **Status**: [View Actions](https://github.com/aazgit/24/actions)
+   - **Status**: [View Actions](https://github.com/aazgit/kishanskraft.com/actions)
 
 3. **Static Hosting** (Netlify, Vercel, GitHub Pages)
    - Build: `npm run build`
@@ -753,15 +753,15 @@ This is not just a template - it's a complete, production-ready business solutio
 
 **For immediate deployment:**
 ```bash
-git clone https://github.com/aazgit/24.git
-cd kishans-kraft
+git clone https://github.com/aazgit/kishanskraft.com.git
+cd kishanskraft.com
 chmod +x deploy-plesk.sh
 ./deploy-plesk.sh
 ```
 
 **Live Website:**
 🌐 **Production Site**: [kishanskraft.com](https://kishanskraft.com)  
-📊 **Build Status**: [GitHub Actions](https://github.com/aazgit/24/actions)  
+📊 **Build Status**: [GitHub Actions](https://github.com/aazgit/kishanskraft.com/actions)  
 📈 **Performance**: [Lighthouse Audit](https://web.dev/measure/?url=https%3A%2F%2Fkishanskraft.com)  
 🚀 **Deployment Dashboard**: [/deployment-status.html](https://kishanskraft.com/deployment-status.html)
 
