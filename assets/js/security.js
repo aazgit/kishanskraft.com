@@ -10,7 +10,13 @@ class SecurityManager {
       enableRateLimiting: true,
       maxRequestsPerMinute: 60,
       blockedDomains: [],
-      allowedOrigins: [window.location.origin]
+      allowedOrigins: [
+        window.location.origin,
+        'https://fonts.googleapis.com',
+        'https://fonts.gstatic.com',
+        'https://www.google-analytics.com',
+        'https://www.googletagmanager.com'
+      ]
     };
     
     this.requestCounts = new Map();
@@ -171,15 +177,16 @@ class SecurityManager {
     // Monitor resource loading
     const originalFetch = window.fetch;
     const originalXMLHttpRequest = window.XMLHttpRequest;
+    const securityManager = this;
     
-    // Override fetch
-    window.fetch = (...args) => {
+    // Override fetch with proper context binding
+    window.fetch = function(...args) {
       const url = args[0];
-      if (typeof url === 'string' && !this.isAllowedOrigin(url)) {
+      if (typeof url === 'string' && !securityManager.isAllowedOrigin(url)) {
         console.warn('Blocked fetch request to:', url);
         return Promise.reject(new Error('Request blocked by security policy'));
       }
-      return originalFetch.apply(this, args);
+      return originalFetch.apply(window, args);
     };
     
     // Override XMLHttpRequest
