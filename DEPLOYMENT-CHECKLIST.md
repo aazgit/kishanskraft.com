@@ -14,7 +14,7 @@
 
 ### ✅ Technical Configuration
 - [ ] Update domain URLs in `sitemap.xml`
-- [ ] Replace `https://your-domain.com` in meta tags across all pages
+- [ ] Replace `https://kishanskraft.com/` in meta tags across all pages
 - [ ] Configure analytics tracking ID (Google Analytics 4)
 - [ ] Set up proper security headers on web server (see `security-headers.md`)
 - [ ] Test PWA installation on mobile devices

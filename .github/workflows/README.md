@@ -84,7 +84,7 @@ PLESK_WEB_DIR=httpdocs
 ### Production
 - **Trigger:** Push to main branch
 - **Environment:** Live production site
-- **URL:** `https://kishans-kraft.com`
+- **URL:** `https://kishanskraft.com/`
 
 ## 📊 Monitoring & Quality Gates
 
@@ -145,10 +145,10 @@ git push origin feature/new-feature
 Replace placeholder domains in workflow files:
 ```yaml
 # Change this:
-url: https://your-domain.com
+url: https://kishanskraft.com/
 
 # To your actual domain:
-url: https://kishans-kraft.com
+url: https://kishanskraft.com/
 ```
 
 ### Modify Performance Thresholds

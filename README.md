@@ -213,7 +213,7 @@ Replace placeholder images in `images/` folder:
 
 #### Domain & URLs
 - Update `sitemap.xml` with your actual domain
-- Replace `https://your-domain.com` in meta tags across all HTML files
+- Replace `https://kishanskraft.com/` in meta tags across all HTML files
 - Update `robots.txt` sitemap URL
 
 #### Product Data
@@ -488,7 +488,7 @@ Set up automated deployment with git hooks:
 **For Plesk Hosting:**
 ```bash
 # Webhook URL for auto-deploy on git push
-https://your-domain.com/deploy-webhook.php
+https://kishanskraft.com//deploy-webhook.php
 ```
 
 **GitHub Actions (Example):**

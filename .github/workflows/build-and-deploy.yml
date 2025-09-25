@@ -83,7 +83,7 @@ jobs:
     
     environment:
       name: production
-      url: https://kishans-kraft.com
+      url: https://kishanskraft.com/
     
     steps:
     - name: 📥 Checkout Repository
@@ -173,7 +173,7 @@ jobs:
       run: |
         if [ "${{ needs.deploy-production.result }}" == "success" ]; then
           echo "🎉 KishansKraft website deployed successfully!"
-          echo "🌐 Live at: https://kishans-kraft.com"
+          echo "🌐 Live at: https://kishanskraft.com/"
         else
           echo "🎉 KishansKraft website build completed successfully!"
           echo "📦 Ready for deployment - configure secrets to enable auto-deploy"
@@ -223,7 +223,7 @@ jobs:
       if: needs.deploy-production.result == 'success'
       run: |
         echo "🎉 KishansKraft website deployed successfully!"
-        echo "🌐 Live at: https://kishans-kraft.com"
+        echo "🌐 Live at: https://kishanskraft.com/"
         
     - name: ❌ Failure Notification
       if: needs.deploy-production.result == 'failure'

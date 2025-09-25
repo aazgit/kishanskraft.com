@@ -32,7 +32,7 @@ jobs:
     
     environment:
       name: plesk-production
-      url: https://your-domain.com
+      url: https://kishanskraft.com/
     
     steps:
     - name: 📥 Checkout Repository
@@ -130,7 +130,7 @@ jobs:
           rm -rf node_modules package*.json build.js .git* 2>/dev/null || true
           
           echo "🎉 Deployment completed successfully!"
-          echo "🌐 Site is live at: https://your-domain.com"
+          echo "🌐 Site is live at: https://kishanskraft.com/"
           
     - name: 🔍 Verify Deployment
       run: |
@@ -138,7 +138,7 @@ jobs:
         sleep 30  # Wait for deployment to propagate
         
         # Check if site is accessible (replace with your domain)
-        SITE_URL="https://your-domain.com"
+        SITE_URL="https://kishanskraft.com/"
         
         status_code=$(curl -o /dev/null -s -w "%{http_code}" "$SITE_URL")
         
@@ -154,7 +154,7 @@ jobs:
       if: success()
       run: |
         echo "🎉 KishansKraft website deployed successfully to Plesk!"
-        echo "🌐 Live at: https://your-domain.com"
+        echo "🌐 Live at: https://kishanskraft.com/"
         echo "📊 Commit: ${{ github.sha }}"
         echo "🔄 Workflow: #${{ github.run_number }}"
 

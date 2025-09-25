@@ -79,7 +79,7 @@ jobs:
     - name: 🌐 Check Website Status
       run: |
         # Replace with your actual domain
-        DOMAIN="https://kishans-kraft.com"
+        DOMAIN="https://kishanskraft.com/"
         
         echo "🔍 Checking website uptime..."
         
