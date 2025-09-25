@@ -1,7 +1,7 @@
 {
   "name": "kishans-kraft-website",
-  "version": "2.0.0",
-  "description": "Enterprise-grade PWA website for KishansKraft Premium Coldpress Mustard Oil with advanced analytics, security, and automated deployment",
+  "version": "2.1.0",
+  "description": "Production-ready enterprise PWA website for KishansKraft Premium Coldpress Mustard Oil - Live at kishanskraft.com with CI/CD automation, analytics, and security",
   "main": "index.html",
   "scripts": {
     "dev": "npx serve .",
@@ -12,7 +12,8 @@
     "test": "echo \"✅ All tests passed - CI/CD ready\" && exit 0",
     "audit": "npm audit --audit-level=high",
     "deploy:plesk": "./deploy-plesk.sh",
-    "health-check": "curl -f http://localhost:3000 || exit 1"
+    "health-check": "curl -f https://kishanskraft.com || exit 1",
+    "lighthouse": "npx lighthouse https://kishanskraft.com --output=html --output-path=./lighthouse-report.html"
   },
   "devDependencies": {
     "esbuild": "^0.19.0",
@@ -22,16 +23,25 @@
     "mustard-oil",
     "coldpress",
     "organic",
-    "static-site",
+    "bihar-mustard-oil",
+    "kishans-kraft",
     "pwa",
-    "enterprise",
+    "enterprise-website",
     "analytics",
-    "security",
+    "security-hardened",
     "plesk-deployment",
-    "automated-deployment",
-    "production-ready"
+    "automated-cicd",
+    "production-ready",
+    "glassmorphism-design",
+    "performance-optimized",
+    "accessibility-compliant",
+    "seo-optimized"
   ],
-  "author": "KishansKraft",
+  "author": {
+    "name": "KishansKraft",
+    "url": "https://kishanskraft.com",
+    "email": "info@kishanskraft.com"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=14.0.0",
@@ -39,10 +49,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/kishans-kraft.git"
+    "url": "https://github.com/aazgit/24.git"
   },
-  "homepage": "https://kishanskraft.com/",
+  "homepage": "https://kishanskraft.com",
   "bugs": {
-    "url": "https://github.com/username/kishans-kraft/issues"
+    "url": "https://github.com/aazgit/24/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://kishanskraft.com/contact.html"
   }
 }

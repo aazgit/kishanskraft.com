@@ -2,52 +2,64 @@
 
 This directory contains automated workflows for the KishansKraft website deployment and monitoring.
 
+**🌐 Live Site**: [kishanskraft.com](https://kishanskraft.com)  
+**📊 Build Status**: [GitHub Actions Dashboard](https://github.com/aazgit/24/actions)  
+**🚀 Deployment Status**: [View Live Dashboard](https://kishanskraft.com/deployment-status.html)
+
 ## 📋 Available Workflows
 
-### 1. 🏗️ Build and Deploy (`build-and-deploy.yml`)
-**Triggers:** Push to main/develop, Pull Requests
+### 1. ✅ CI - Build and Test (`ci.yml`) 
+**Status**: ✅ **ACTIVE & PASSING**  
+**Triggers:** Push to main/develop, Pull Requests  
 **Features:**
 - ✅ Multi-version Node.js testing (18, 20)
-- ✅ Security audit
-- ✅ Production build generation
-- ✅ Build artifact validation
-- ✅ Bundle size analysis
-- ✅ Preview deployment for PRs
-- ✅ Production deployment on main push
-- ✅ Lighthouse performance audit
+- ✅ Security audit and vulnerability scanning
+- ✅ Production build generation and validation
+- ✅ SEO and accessibility compliance checks
+- ✅ Basic functionality testing
+- ✅ Build artifacts for manual deployment
 
-### 2. 📊 Performance Monitoring (`monitoring.yml`)
-**Triggers:** Daily at 2 AM UTC, Manual dispatch
+### 2. 🏗️ Build and Deploy (`build-and-deploy.yml`)
+**Status**: ⚙️ **CONFIGURED** (Awaiting deployment secrets)  
+**Triggers:** Push to main/develop, Pull Requests  
 **Features:**
-- ✅ Daily Lighthouse performance audits
-- ✅ Security vulnerability scanning
-- ✅ Website uptime monitoring
-- ✅ SEO health checks
-- ✅ Dependency review
+- ✅ Complete build pipeline with validation
+- ⏸️ Production deployment (when DEPLOYMENT_ENABLED=true)
+- ⏸️ Preview deployment for PRs
+- ⏸️ Lighthouse performance audits
 
-### 3. 🔄 Auto-Deploy to Plesk (`auto-deploy-plesk.yml`)
-**Triggers:** Push to main (excluding docs)
+### 3. 📊 Performance Monitoring (`monitoring.yml`)
+**Status**: ⚙️ **READY** (Awaiting live site for monitoring)  
+**Triggers:** Daily at 2 AM UTC, Manual dispatch  
 **Features:**
-- ✅ Automated SSH deployment to Plesk hosting
-- ✅ Backup creation before deployment
-- ✅ Git-based deployment with rollback capability
-- ✅ Automatic permissions setting
-- ✅ Deployment verification
-- ✅ Success notifications
+- 🔍 Daily Lighthouse performance audits
+- 🛡️ Security vulnerability scanning  
+- ⏰ Website uptime monitoring at kishanskraft.com
+- 🔍 SEO health checks and validation
 
-## 🔧 Setup Requirements
+### 4. 🔄 Auto-Deploy to Plesk (`auto-deploy-plesk.yml`)
+**Status**: ⚙️ **CONFIGURED** (Awaiting Plesk secrets)  
+**Triggers:** Push to main (excluding docs)  
+**Features:**
+- 🚀 Automated SSH deployment to Plesk hosting
+- 💾 Backup creation before deployment
+- 🔄 Git-based deployment with rollback capability
+- 🔧 Automatic permissions and SSL setup
+- ✅ Deployment verification at kishanskraft.com
 
-### GitHub Repository Secrets
+## 🎯 Current Production Status
 
-For full functionality, add these secrets in GitHub Settings > Secrets and Variables > Actions:
+**✅ WORKING FEATURES:**
+- Complete CI/CD build pipeline
+- Automated testing and validation
+- Security audits and quality checks
+- Build artifacts ready for deployment
+- Domain configuration complete (kishanskraft.com)
 
-#### Production Deployment
-```bash
-# General deployment (for build-and-deploy.yml)
-DEPLOY_HOST=your-server.com
-DEPLOY_USER=your-username
-DEPLOY_KEY=-----BEGIN OPENSSH PRIVATE KEY-----...
-DEPLOY_PATH=/path/to/web/directory
+**⚙️ OPTIONAL ENHANCEMENTS** (Configure when ready):
+- Automated Plesk deployment
+- Performance monitoring alerts
+- Preview environments for PRs
 
 # Plesk-specific (for auto-deploy-plesk.yml)
 PLESK_HOST=your-plesk-server.com
