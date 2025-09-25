@@ -1,0 +1,174 @@
+name: 📊 Performance Monitoring
+
+on:
+  schedule:
+    # Run performance checks daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  performance-audit:
+    name: 🔍 Website Performance Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: 📦 Install Dependencies
+      run: npm ci
+      
+    - name: 🏗️ Build Production Site
+      run: npm run build
+      
+    - name: 🚀 Start Local Server
+      run: |
+        cd dist
+        npx serve . &
+        sleep 10
+        
+    - name: 🔍 Run Lighthouse Performance Audit
+      uses: treosh/lighthouse-ci-action@v10
+      with:
+        configPath: './lighthouserc.json'
+        uploadArtifacts: true
+        temporaryPublicStorage: true
+        
+    - name: 📊 Performance Report
+      run: |
+        echo "📊 Performance audit completed"
+        echo "🔗 Check Lighthouse reports in the action artifacts"
+
+  security-scan:
+    name: 🛡️ Security Vulnerability Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: 📦 Install Dependencies
+      run: npm ci
+      
+    - name: 🔍 Security Audit
+      run: |
+        npm audit --audit-level=moderate
+        
+    - name: 🛡️ Dependency Vulnerability Check
+      uses: actions/dependency-review-action@v4
+      if: github.event_name == 'pull_request'
+
+  uptime-check:
+    name: ⏰ Website Uptime Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🌐 Check Website Status
+      run: |
+        # Replace with your actual domain
+        DOMAIN="https://kishans-kraft.com"
+        
+        echo "🔍 Checking website uptime..."
+        
+        # Check main pages
+        PAGES=("/" "/products.html" "/about.html" "/contact.html")
+        
+        for page in "${PAGES[@]}"; do
+          echo "Checking: $DOMAIN$page"
+          status_code=$(curl -o /dev/null -s -w "%{http_code}" "$DOMAIN$page")
+          
+          if [ $status_code -eq 200 ]; then
+            echo "✅ $page - OK ($status_code)"
+          else
+            echo "❌ $page - FAILED ($status_code)"
+            exit 1
+          fi
+        done
+        
+        echo "🎉 All pages are up and running!"
+
+  seo-check:
+    name: 🔍 SEO Health Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: 📦 Install Dependencies
+      run: npm ci
+      
+    - name: 🏗️ Build Production Site
+      run: npm run build
+      
+    - name: 🔍 Check SEO Elements
+      run: |
+        echo "🔍 Checking SEO elements..."
+        
+        # Check for essential SEO elements in built files
+        FILES=("dist/index.html" "dist/products.html" "dist/about.html" "dist/contact.html")
+        
+        for file in "${FILES[@]}"; do
+          echo "Checking: $file"
+          
+          # Check for title tag
+          if grep -q "<title>" "$file"; then
+            echo "✅ Title tag found"
+          else
+            echo "❌ Missing title tag"
+            exit 1
+          fi
+          
+          # Check for meta description
+          if grep -q 'name="description"' "$file"; then
+            echo "✅ Meta description found"
+          else
+            echo "❌ Missing meta description"
+            exit 1
+          fi
+          
+          # Check for Open Graph tags
+          if grep -q 'property="og:' "$file"; then
+            echo "✅ Open Graph tags found"
+          else
+            echo "❌ Missing Open Graph tags"
+            exit 1
+          fi
+        done
+        
+        # Check sitemap exists
+        if [ -f "dist/sitemap.xml" ]; then
+          echo "✅ Sitemap found"
+        else
+          echo "❌ Missing sitemap.xml"
+          exit 1
+        fi
+        
+        # Check robots.txt exists
+        if [ -f "dist/robots.txt" ]; then
+          echo "✅ Robots.txt found"
+        else
+          echo "❌ Missing robots.txt"
+          exit 1
+        fi
+        
+        echo "🎉 SEO check completed successfully!"

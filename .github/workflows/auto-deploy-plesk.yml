@@ -1,0 +1,142 @@
+name: 🔄 Auto-Deploy to Plesk
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.md'
+      - '.github/**'
+      - 'docs/**'
+
+jobs:
+  deploy-to-plesk:
+    name: 🚀 Deploy to Plesk Hosting
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: plesk-production
+      url: https://your-domain.com
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: 📦 Install Dependencies
+      run: npm ci
+      
+    - name: 🏗️ Build Production Site
+      run: npm run build
+      
+    - name: 🔧 Prepare Deployment Package
+      run: |
+        # Create deployment package
+        mkdir -p deployment-package
+        cp -r dist/* deployment-package/
+        cp deploy-plesk.sh deployment-package/
+        cp package.json deployment-package/
+        cp package-lock.json deployment-package/
+        
+        # Create deployment info file
+        echo "Deployment Info:" > deployment-package/DEPLOYMENT_INFO.txt
+        echo "Commit: ${{ github.sha }}" >> deployment-package/DEPLOYMENT_INFO.txt
+        echo "Branch: ${{ github.ref_name }}" >> deployment-package/DEPLOYMENT_INFO.txt
+        echo "Deployed: $(date)" >> deployment-package/DEPLOYMENT_INFO.txt
+        echo "Workflow: ${{ github.run_number }}" >> deployment-package/DEPLOYMENT_INFO.txt
+        
+    - name: 🚀 Deploy via SSH to Plesk
+      uses: appleboy/ssh-action@v1.0.0
+      env:
+        REPO_URL: ${{ github.server_url }}/${{ github.repository }}.git
+        COMMIT_SHA: ${{ github.sha }}
+      with:
+        host: ${{ secrets.PLESK_HOST }}
+        username: ${{ secrets.PLESK_USER }}
+        key: ${{ secrets.PLESK_SSH_KEY }}
+        port: ${{ secrets.PLESK_PORT || 22 }}
+        envs: REPO_URL,COMMIT_SHA
+        script: |
+          echo "🚀 Starting automated deployment to Plesk..."
+          
+          # Navigate to web directory
+          cd ${{ secrets.PLESK_WEB_DIR || 'httpdocs' }}
+          
+          # Create backup
+          BACKUP_DIR="../backups/backup-$(date +%Y%m%d-%H%M%S)"
+          mkdir -p "$BACKUP_DIR"
+          cp -r . "$BACKUP_DIR/" 2>/dev/null || true
+          echo "✅ Backup created at $BACKUP_DIR"
+          
+          # Clone or update repository
+          if [ -d ".git" ]; then
+            echo "📥 Updating existing repository..."
+            git fetch origin
+            git reset --hard origin/main
+          else
+            echo "📥 Cloning repository..."
+            git clone "$REPO_URL" temp-repo
+            cp -r temp-repo/* .
+            cp -r temp-repo/.git .
+            rm -rf temp-repo
+          fi
+          
+          # Install Node.js dependencies
+          if command -v npm &> /dev/null; then
+            echo "📦 Installing dependencies..."
+            npm ci --only=production
+            
+            echo "🏗️ Building production site..."
+            npm run build
+            
+            # Move built files to web root
+            if [ -d "dist" ]; then
+              cp -r dist/* .
+              echo "✅ Built files deployed"
+            fi
+          else
+            echo "⚠️  Node.js not available, using pre-built files"
+          fi
+          
+          # Set proper permissions
+          find . -type f -name "*.html" -exec chmod 644 {} \;
+          find . -type f -name "*.css" -exec chmod 644 {} \;
+          find . -type f -name "*.js" -exec chmod 644 {} \;
+          find . -type f -name "*.json" -exec chmod 644 {} \;
+          find . -type d -exec chmod 755 {} \;
+          
+          # Clean up development files
+          rm -rf node_modules package*.json build.js .git* 2>/dev/null || true
+          
+          echo "🎉 Deployment completed successfully!"
+          echo "🌐 Site is live at: https://your-domain.com"
+          
+    - name: 🔍 Verify Deployment
+      run: |
+        echo "🔍 Verifying deployment..."
+        sleep 30  # Wait for deployment to propagate
+        
+        # Check if site is accessible (replace with your domain)
+        SITE_URL="https://your-domain.com"
+        
+        status_code=$(curl -o /dev/null -s -w "%{http_code}" "$SITE_URL")
+        
+        if [ $status_code -eq 200 ]; then
+          echo "✅ Site is live and accessible!"
+          echo "🌐 $SITE_URL"
+        else
+          echo "❌ Site returned status code: $status_code"
+          exit 1
+        fi
+        
+    - name: 📢 Notify Success
+      if: success()
+      run: |
+        echo "🎉 KishansKraft website deployed successfully to Plesk!"
+        echo "🌐 Live at: https://your-domain.com"
+        echo "📊 Commit: ${{ github.sha }}"
+        echo "🔄 Workflow: #${{ github.run_number }}"
