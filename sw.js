@@ -1,7 +1,7 @@
 // KishansKraft Service Worker
 // Provides offline functionality and caching for PWA
 
-const CACHE_NAME = 'kishans-kraft-v1.0.0';
+const CACHE_NAME = 'kishans-kraft-v1.0.1-20250925';
 const STATIC_CACHE_URLS = [
   '/',
   '/index.html',
